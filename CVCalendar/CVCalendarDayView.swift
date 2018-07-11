@@ -202,8 +202,8 @@ extension CVCalendarDayView {
             ? .present
             : .not
         
-        dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(by: weekDay, status: status, present: present) ?? color
-        dayLabel?.font = appearance?.delegate?.dayLabelFont?(by: weekDay, status: status, present: present) ?? font
+        dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(on: self, weekDay: weekDay, status: status, present: present) ?? color
+        dayLabel?.font = appearance?.delegate?.dayLabelFont?(on: self, weekDay: weekDay, status: status, present: present) ?? font
 
         addSubview(dayLabel)
     }
@@ -489,19 +489,19 @@ extension CVCalendarDayView {
             }
 
             if isCurrentDay {
-                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(by: weekDay, status: .selected, present: present)
+                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelPresentWeekdaySelectedTextColor!
-                dayLabel?.font = appearance?.delegate?.dayLabelFont?(by: weekDay, status: .selected, present: present)
+                dayLabel?.font = appearance?.delegate?.dayLabelFont?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelPresentWeekdaySelectedFont
-                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(by: weekDay, status: .selected, present: present)
+                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelPresentWeekdaySelectedBackgroundColor
                 backgroundAlpha = appearance?.dayLabelPresentWeekdaySelectedBackgroundAlpha
             } else {
-                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(by: weekDay, status: .selected, present: present)
+                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelWeekdaySelectedTextColor
-                dayLabel?.font = appearance?.delegate?.dayLabelFont?(by: weekDay, status: .selected, present: present)
+                dayLabel?.font = appearance?.delegate?.dayLabelFont?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelWeekdaySelectedFont
-                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(by: weekDay, status: .selected, present: present)
+                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelWeekdaySelectedBackgroundColor
                 backgroundAlpha = appearance?.dayLabelWeekdaySelectedBackgroundAlpha
             }
@@ -509,19 +509,19 @@ extension CVCalendarDayView {
         case .range:
             shape = .rect
             if isCurrentDay {
-                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(by: weekDay, status: .highlighted, present: present)
+                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(on: self, weekDay: weekDay, status: .highlighted, present: present)
                     ?? appearance?.dayLabelPresentWeekdayHighlightedTextColor!
-                dayLabel?.font = appearance?.delegate?.dayLabelFont?(by: weekDay, status: .highlighted, present: present)
+                dayLabel?.font = appearance?.delegate?.dayLabelFont?(on: self, weekDay: weekDay, status: .highlighted, present: present)
                     ?? appearance?.dayLabelPresentWeekdayHighlightedFont
-                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(by: weekDay, status: .selected, present: present)
+                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelPresentWeekdayHighlightedBackgroundColor
                 backgroundAlpha = appearance?.dayLabelPresentWeekdayHighlightedBackgroundAlpha
             } else {
-                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(by: weekDay, status: .highlighted, present: present)
+                dayLabel?.textColor = appearance?.delegate?.dayLabelColor?(on: self, weekDay: weekDay, status: .highlighted, present: present)
                     ?? appearance?.dayLabelWeekdayHighlightedTextColor
-                dayLabel?.font = appearance?.delegate?.dayLabelFont?(by: weekDay, status: .highlighted, present: present)
+                dayLabel?.font = appearance?.delegate?.dayLabelFont?(on: self, weekDay: weekDay, status: .highlighted, present: present)
                     ?? appearance?.dayLabelWeekdayHighlightedFont
-                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(by: weekDay, status: .selected, present: present)
+                backgroundColor = appearance?.delegate?.dayLabelBackgroundColor?(on: self, weekDay: weekDay, status: .selected, present: present)
                     ?? appearance?.dayLabelWeekdayHighlightedBackgroundColor
                 backgroundAlpha = appearance?.dayLabelWeekdayHighlightedBackgroundAlpha
             }
@@ -574,8 +574,8 @@ extension CVCalendarDayView {
             }()
             let present: CVPresent = isCurrentDay ? .present : .not
             
-            dayLabel?.textColor = appearance.delegate?.dayLabelColor?(by: weekDay, status: status, present: present) ?? color
-            dayLabel?.font = appearance.delegate?.dayLabelFont?(by: weekDay, status: status, present: present) ?? font
+            dayLabel?.textColor = appearance.delegate?.dayLabelColor?(on: self, weekDay: weekDay, status: status, present: present) ?? color
+            dayLabel?.font = appearance.delegate?.dayLabelFont?(on: self, weekDay: weekDay, status: status, present: present) ?? font
 
             moveDotMarkerBack(true, coloring: false)
 
